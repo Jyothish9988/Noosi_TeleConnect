@@ -310,8 +310,11 @@ class HomeController extends Controller
             // Save the image file to the specified path
             file_put_contents($filePath, base64_decode($imageData));
     
-            // Generate a unique 6-digit ID
-            $regId = mt_rand(100000, 999999);
+            
+            $maxRegId = Patients::max('reg_id');
+
+            // Increment the maxRegId to get the next available reg_id
+            $regId = $maxRegId ? $maxRegId + 1 : 1000;
     
             // Save the patient details in the database
             $patient = new Patients();
