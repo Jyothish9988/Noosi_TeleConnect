@@ -310,8 +310,11 @@ class HomeController extends Controller
             // Save the image file to the specified path
             file_put_contents($filePath, base64_decode($imageData));
     
-            // Generate a unique 6-digit ID
-            $regId = mt_rand(100000, 999999);
+            
+            $maxRegId = Patients::max('reg_id');
+
+            // Increment the maxRegId to get the next available reg_id
+            $regId = $maxRegId ? $maxRegId + 1 : 1000;
     
             // Save the patient details in the database
             $patient = new Patients();
@@ -327,6 +330,7 @@ class HomeController extends Controller
             $patient->email = $request->input('email');
             $patient->hid = $request->input('hid');
             $patient->reg_id = $regId;
+            $patient->status = 0;
             $patient->save();
     
             // Send the registration confirmation email
@@ -351,27 +355,32 @@ class HomeController extends Controller
         return view('user.patients_view',compact('data'));
     }
 
+ 
+
     public function patient_booking($reg_id)
     {
         $date = date('Y-m-d');
-        $data = new booking;
+        
+        
+        $booking = new Booking;
+        $booking->date = $date;
+        $booking->bkey = uniqid();
+        $booking->lid = $reg_id;
+        $booking->save();
 
         
-        $data->date = $date; 
-        $data->bkey = uniqid();
-        $data->lid = $reg_id;
-    
-        $data->save();
+        Patients::where('reg_id', $reg_id)->update(['status' => 1]);
+
         session()->flash('message', 'Patient booked successfully');
         return redirect()->back();
-        
     }
+
 
     public function bookings_view_today()
     {
 
         
-
+        $dr_lid = Auth::user()->id;
         $date = date('Y-m-d');
         // dd($date);
         $data= DB::table('bookings')
@@ -381,12 +390,13 @@ class HomeController extends Controller
                 ->orderBy('patients.id', 'desc')
                 ->get();
 
-        return view('doctor.bookings_view',compact('data'));
+        return view('doctor.bookings_view',compact('data','dr_lid'));
     
     }
 
     public function consultation_schedule_upload(Request $request, $bkey)
     {
+        //NB: Here bkey is reg_id of the table patient
         $booking = DB::table('Bookings')
             ->where('lid', $bkey)
             ->first();
@@ -412,7 +422,9 @@ class HomeController extends Controller
                 $roomName = 'observable-' . $roomHash;
                 $url = $roomName;
             }
-    
+            
+            Patients::where('reg_id', $bkey)->update(['status' => 1]);
+
             Booking::where('lid', $bkey)
                 ->update(['time' => $time, 'url' => $url, 'dr_id' => $dr_id]);
         }
