@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('weight')->nullable();
             $table->string('bp')->nullable();
             $table->string('reg_id')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

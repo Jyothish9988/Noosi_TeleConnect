@@ -57,8 +57,8 @@
     <th>Date</th>
     <th>Url</th>
 
-    <th>Schedule</th>
-    <th>Delete</th>
+    <th>Schedule </th>
+    <!-- <th>Delete</th> -->
  
 
 </tr> 
@@ -76,10 +76,22 @@
     @if ($p->url == null)
     <td><a href="" class="btn btn-danger">Appoinment time not fixed</a></td>
     @else
-    <td><a href="{{ url('videocall_join',['url' => $p->url]) }}" clas="btn btn-success">Join</a></td>
+
+        @if ($p->dr_id == $dr_lid)
+            <td><a href="{{ url('videocall_join',['url' => $p->url]) }}" class="btn btn-success">Join</a></td>
+        @else
+            <td>Meeting Fixed by Another Doctor</td>
+        @endif
+
+    
     @endif
+    @if ($p->url == null)
     <td><a href="{{url('consultation_schedule', ['bkey' => $p->reg_id])}}"   class="btn btn-info">Schedule Meeting</a></td>
-    <td><a href=""   class="btn btn-warning">Refund</a></td>
+    @else
+
+    <td>Schedulded</td>
+    @endif
+    <!-- <td><a href=""   class="btn btn-warning">Refund</a></td> -->
 
 
 </tr>

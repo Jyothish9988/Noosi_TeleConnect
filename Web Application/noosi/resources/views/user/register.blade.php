@@ -169,7 +169,7 @@
 
     <div class="form-group">
       <label>Health ID</label>
-      <input type="text" name="helid" placeholder="Enter Health ID" class="form-control">
+      <input type="text" name="hid" placeholder="Enter Health ID" class="form-control">
     </div>
 
     <input type="submit" class="btn btn-primary" value="Submit">
