@@ -141,8 +141,12 @@
 <br>
 <br>
 <br>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
@@ -150,145 +154,139 @@
 
       <!--Start Dashboard Content-->
 
-      <head>
-    <!-- ... (other head content) ... -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<div class="card mt-3">
+	<div class="card mt-3">
     <div class="card-content">
+   
         <div class="row row-group m-0">
-            <!-- Temperature -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->temperature }}°C<span class="float-right">
-                        @if ($reading->temperature > 37.5)
-                            <i class="fas fa-arrow-up text-danger"></i>
-                        @elseif ($reading->temperature < 36.0)
-                            <i class="fas fa-arrow-down text-primary"></i>
-                        @else
-                            <i class="fas fa-equals text-success"></i>
-                        @endif
-                    </span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $reading->temperature }}%;" aria-valuenow="{{ $reading->temperature }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->temperature }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Temperature <span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Temperature <span class="float-right"></span></p>
                 </div>
             </div>
-            
-            <!-- Weight Scale -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->weight_scale }} kg<span class="float-right">
-                        @if ($reading->weight_scale > 80)
-                            <i class="fas fa-arrow-up text-danger"></i>
-                        @elseif ($reading->weight_scale < 50)
-                            <i class="fas fa-arrow-down text-primary"></i>
-                        @else
-                            <i class="fas fa-equals text-success"></i>
-                        @endif
-                    </span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $reading->weight_scale }}%;" aria-valuenow="{{ $reading->weight_scale }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->weight_scale }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Weight Scale<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Weight Scale<span class="float-right"></span></p>
                 </div>
             </div>
-            
-            <!-- Heart Rate -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->heart_rate }} bpm<span class="float-right">
-                        @if ($reading->heart_rate > 100)
-                            <i class="fas fa-arrow-up text-danger"></i>
-                        @elseif ($reading->heart_rate < 60)
-                            <i class="fas fa-arrow-down text-primary"></i>
-                        @else
-                            <i class="fas fa-equals text-success"></i>
-                        @endif
-                    </span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ $reading->heart_rate }}%;" aria-valuenow="{{ $reading->heart_rate }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->heart_rate }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Heart Rate<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Heart Rate<span class="float-right"></span></p>
                 </div>
             </div>
-            
-            <!-- Respiration Rate -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->respiration_rate }} bpm<span class="float-right">
-                        @if ($reading->respiration_rate > 20)
-                            <i class="fas fa-arrow-up text-danger"></i>
-                        @elseif ($reading->respiration_rate < 12)
-                            <i class="fas fa-arrow-down text-primary"></i>
-                        @else
-                            <i class="fas fa-equals text-success"></i>
-                        @endif
-                    </span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ $reading->respiration_rate }}%;" aria-valuenow="{{ $reading->respiration_rate }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->respiration_rate }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Respiration Rate<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Respiration Rate <span class="float-right"></span></p>
                 </div>
             </div>
-            
-            <!-- Oxygen Saturation -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->oxygen_saturation }}%<span class="float-right">
-                        @if ($reading->oxygen_saturation < 95)
-                            <i class="fas fa-arrow-down text-primary"></i>
-                        @elseif ($reading->oxygen_saturation >= 95 && $reading->oxygen_saturation <= 100)
-                            <i class="fas fa-equals text-success"></i>
-                        @endif
-                    </span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ $reading->oxygen_saturation }}%;" aria-valuenow="{{ $reading->oxygen_saturation }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->oxygen_saturation }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Oxygen Saturation<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Oxygen Saturation<span class="float-right"></span></p>
                 </div>
             </div>
-            
-            <!-- Blood Pressure Monitor -->
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                    <h5 class="text-white mb-0">{{ $reading->blood_pressure }}<span class="float-right"></span></h5>
-                    <div class="progress my-3" style="height:15px;">
-                        <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ $reading->blood_pressure }}%;" aria-valuenow="{{ $reading->blood_pressure }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <h5 class="text-white mb-0">{{ $reading->blood_pressure }}<span class="float-right"></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:55%"></div>
                     </div>
-                    <p class="mb-0 text-white small-font">Blood Pressure Monitor<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Blood Pressure Monitor <span class="float-right"></span></p>
                 </div>
             </div>
-
-
-            <div class="col-12 col-lg-6 col-xl-3 border-light">
-              <div class="card-body">   
-                    </span></h5>
-                    <p class="mb-0 text-white small-font"><span class="float-right"></span></p>
-                    <!-- Generate Report Link -->
-                    <a href="" class="btn btn-primary">Generate Report</a>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-3 border-light">
-              <div class="card-body">   
-                    </span></h5>
-                    <p class="mb-0 text-white small-font"><span class="float-right"></span></p>
-                    <!-- Generate Report Link -->
-                    <a href="" class="btn btn-success">Home</a>
-                </div>
-            </div>
-
-
         </div>
     </div>
-</div>
-
- 
+    
+ </div>  
 	  
+ <div class="row">
+  <div class="col-12 col-lg-4 col-xl-4 order-lg-last">
 
+
+
+  <div class="card">
+    <div class="card-header">Heart Rate
+		   <div class="card-action">
+			 <div class="dropdown">
+			 <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+			  <i class="icon-options"></i>
+			 </a>
+				<div class="dropdown-menu dropdown-menu-right">
+				<a class="dropdown-item" href="javascript:void();">Action</a>
+				<a class="dropdown-item" href="javascript:void();">Another action</a>
+				<a class="dropdown-item" href="javascript:void();">Something else here</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="javascript:void();">Separated link</a>
+			   </div>
+			  </div>
+		   </div>
+		 </div>
+		 <div class="card-body">
+		    <ul class="list-inline">
+			  <li class="list-inline-item"><i class="fa fa-circle mr-2 text-white"></i>New Visitor</li>
+			  <li class="list-inline-item"><i class="fa fa-circle mr-2 text-light"></i>Old Visitor</li>
+			</ul>
+			<div class="chart-container-1">
+
+
+            <div style="overflow-x:auto">
+            <canvas id="waveformCanvas" width="800" height="200"></canvas>
+            </div>
+
+
+
+			</div>
+		 </div>
+		 
+		 <div class="row m-0 row-group text-center border-top border-light-3">
+		   <div class="col-12 col-lg-4">
+		     <div class="p-3">
+		       <h5 class="mb-0">45.87M</h5>
+			   <small class="mb-0">Overall Visitor <span> <i class="fa fa-arrow-up"></i> 2.43%</span></small>
+		     </div>
+		   </div>
+		   <div class="col-12 col-lg-4">
+		     <div class="p-3">
+		       <h5 class="mb-0">15:48</h5>
+			   <small class="mb-0">Visitor Duration <span> <i class="fa fa-arrow-up"></i> 12.65%</span></small>
+		     </div>
+		   </div>
+		   <div class="col-12 col-lg-4">
+		     <div class="p-3">
+		       <h5 class="mb-0">245.65</h5>
+			   <small class="mb-0">Pages/Visit <span> <i class="fa fa-arrow-up"></i> 5.62%</span></small>
+		     </div>
+		   </div>
+		 </div>
+		 
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  <div class="col-12 col-lg-8 col-xl-8 order-lg-first">
     
       <!-- Videos content here -->
       <div class="copy d-none">Send your URL to start a video call, code: <input type="text" value="{{$url}}" id="hash" readonly></div><br>
@@ -298,21 +296,41 @@
       <video id="remoteVideo" autoplay></video>
 
     </div>
- 
+  </div>
+</div>
+
+
+
+
+     
+	
+   
+
+
+ </div><!--End Row-->
+
+
+    </div>
+      </div>
+    </div><!--End Row-->
 	
 	</div>
 	 </div>
-	</div>
+	</div><!--End Row-->
 
-  
+      <!--End Dashboard Content-->
+    <!--start overlay-->
 	  <div class="overlay toggle-menu"></div>
-	
+	<!--end overlay-->
 	
     </div>
-   
+    <!-- End container-fluid-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
 
-
+   
   </div><!--End wrapper-->
 
   <!-- Bootstrap core JavaScript-->
@@ -525,3 +543,26 @@ function localDescCreated(desc) {
 
 <!-- Mirrored from codervent.com/dashtreme/demo/transparent-admin/vertical-layout/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2020 07:20:15 GMT -->
 </html>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- --><div class="col-12 col-lg-6 col-xl-3 border-light">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{ $reading->blood_pressure }}<span class="float-right">
+                      
+                          $bp_values = explode("/", $reading->blood_pressure);
+                          $systolic = intval($bp_values[0]);
+                          $diastolic = intval($bp_values[1]);
+                      @endphp
+                      
+                      @if ($systolic > 130 || $diastolic > 80)
+                          <i class="fas fa-arrow-up text-danger"></i>
+                      @elseif ($systolic < 90 || $diastolic < 60)
+                          <i class="fas fa-arrow-down text-primary"></i>
+                      @else
+                          <i class="fas fa-equals text-success"></i>
+                      @endif
+                  </span></h5>
+                  <div class="progress my-3" style="height:15px;">
+                      <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ $systolic }}%;" aria-valuenow="{{ $systolic }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mb-0 text-white small-font">Blood Pressure Monitor<span class="float-right"></span></p>
+              </div>
+</div>

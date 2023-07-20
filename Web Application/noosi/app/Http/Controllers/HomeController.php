@@ -11,6 +11,8 @@ use App\Models\doctor;
 use App\Models\Patients;
 use App\Models\review;
 use App\Models\User;
+use App\Models\sensor_readings;
+use App\Models\medical_records;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -288,7 +290,11 @@ class HomeController extends Controller
 
     public function videocall_join($url)
     {
-        return view('doctor.videocall_join', compact('url'));
+        $reading = DB::table('sensor_readings')
+                      ->distinct()
+                      ->first();
+     
+        return view('doctor.videocall_join', compact('url', 'reading'));
     }
 
     public function registration()

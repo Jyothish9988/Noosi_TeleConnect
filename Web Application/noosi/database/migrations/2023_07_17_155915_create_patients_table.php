@@ -26,12 +26,6 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('hid')->nullable();
-            $table->string('heart_rate')->nullable();
-            $table->string('resp_rate')->nullable();
-            $table->string('temp_rate')->nullable();
-            $table->string('oxygen_satu')->nullable();
-            $table->string('weight')->nullable();
-            $table->string('bp')->nullable();
             $table->string('reg_id')->nullable();
             $table->timestamps();
         });
