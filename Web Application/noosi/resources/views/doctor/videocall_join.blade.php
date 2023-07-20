@@ -141,7 +141,14 @@
 <br>
 <br>
 <br>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="clearfix"></div>
 	
@@ -262,26 +269,15 @@
                 </div>
             </div>
 
-
             <div class="col-12 col-lg-6 col-xl-3 border-light">
-              <div class="card-body">   
-                    </span></h5>
-                    <p class="mb-0 text-white small-font"><span class="float-right"></span></p>
-                    <!-- Generate Report Link -->
-                    <a href="" class="btn btn-primary">Generate Report</a>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-3 border-light">
-              <div class="card-body">   
-                    </span></h5>
-                    <p class="mb-0 text-white small-font"><span class="float-right"></span></p>
-                    <!-- Generate Report Link -->
-                    <a href="" class="btn btn-success">Home</a>
-                </div>
-            </div>
-
-
+    <div class="card-body">
+        <form action="" method="POST">
+            @csrf
+            <textarea name="temperature" class="form-control mb-2" rows="3" placeholder="Please enter the prescription here"></textarea>
+            <button type="submit" class="btn btn-primary">Generate Report</button>
+        </form>
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -302,6 +298,19 @@
 	
 	</div>
 	 </div>
+  <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+            
+        <div class="col-12 col-lg-6 col-xl-3 border-light">
+    <div class="card-body">
+        <span>Noosi TeleConnect</span>
+    </div>
+</div>
+                    
+        </div>
+    </div>
+</div>
 	</div>
 
   
@@ -328,8 +337,7 @@
   <script src="{{asset('video/assets/js/jquery.loading-indicator.html')}}"></script>
   <!-- Custom scripts -->
   <script src="{{asset('video/assets/js/app-script.js')}}"></script>
-  <!-- Chart js -->
-  
+
   <script src="{{asset('video/assets/plugins/Chart.js/Chart.min.js')}}"></script>
   <!-- Vector map JavaScript -->
   <script src="{{asset('video/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
