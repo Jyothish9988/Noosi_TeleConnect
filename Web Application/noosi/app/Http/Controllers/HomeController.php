@@ -322,6 +322,8 @@ class HomeController extends Controller
 
         Patients::where('reg_id', $reg_id)->update(['status' => '0']);
         Booking::where('lid', $reg_id)->where('dr_id', $dr_lid)->where('date', $date)->update(['bstatus' => '5']);
+        DB::table('sensor_readings')->truncate();
+
 
         session()->flash('message', 'Patient details uploaded successfully');
 
