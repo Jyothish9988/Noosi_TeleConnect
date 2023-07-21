@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('lid')->nullable();
             $table->string('amount')->nullable();
             $table->string('co_id')->nullable();
-            $table->string('status')->nullable();
+            $table->string('bstatus')->nullable();
             $table->timestamps();
         });
     }

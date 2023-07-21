@@ -288,13 +288,46 @@ class HomeController extends Controller
 
     }
 
-    public function videocall_join($url)
+    public function videocall_join($url,$reg_id)
     {
         $reading = DB::table('sensor_readings')
                       ->distinct()
                       ->first();
      
-        return view('doctor.videocall_join', compact('url', 'reading'));
+        return view('doctor.videocall_join', compact('url', 'reading','reg_id'));
+    }
+
+    public function generate_report(Request $request,$reg_id)
+    {
+        $readings = DB::table('sensor_readings')
+        ->distinct()
+        ->first();
+
+        $date = date('Y-m-d');
+        $dr_lid = Auth::user()->id;
+        $data = new medical_records();
+
+        $data->reg_id = $reg_id;
+        $data->date = $date;
+        $data->dr_lid = $dr_lid;
+        $data->heart_rate = $readings->heart_rate;
+        $data->respiration_rate = $readings->respiration_rate;
+        $data->temperature = $readings->temperature;
+        $data->oxygen_saturation = $readings->oxygen_saturation;
+        $data->weight_scale = $readings->weight_scale;
+        $data->blood_pressure = $readings->blood_pressure;
+        $data->prescription = $request->input('prescription');
+
+        $data->save();
+
+        Patients::where('reg_id', $reg_id)->update(['status' => '0']);
+        Booking::where('lid', $reg_id)->where('dr_id', $dr_lid)->where('date', $date)->update(['bstatus' => '5']);
+
+        session()->flash('message', 'Patient details uploaded successfully');
+
+        // Redirect to a specific URL
+        return redirect('/bookings_view_today');
+
     }
 
     public function registration()

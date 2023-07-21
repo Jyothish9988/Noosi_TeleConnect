@@ -22,6 +22,11 @@ return new class extends Migration
             $table->string('oxygen_saturation')->nullable();
             $table->string('weight_scale')->nullable();
             $table->string('blood_pressure')->nullable();
+            $table->string('reg_id')->nullable();
+            $table->string('dr_lid')->nullable();
+            $table->string('prescription')->nullable();
+            $table->string('date')->nullable();
+            $table->string('report')->nullable();
         });
     }
 

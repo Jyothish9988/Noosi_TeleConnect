@@ -112,7 +112,11 @@ route::get('/bookings_view_today',[HomeController::class,'bookings_view_today'])
 
 route::get('/user_videocall_join/{url}',[HomeController::class,'user_videocall_join']);
 
-route::get('/videocall_join/{url}',[HomeController::class,'videocall_join']);
+route::get('/videocall_join/{url}/{reg_id}',[HomeController::class,'videocall_join']);
+
+route::post('/generate_report/{reg_id}',[HomeController::class,'generate_report']);
+
+route::get('/result_view',[HomeController::class,'result_view']);
 
 route::get('/registration',[HomeController::class,'registration']);
 

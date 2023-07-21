@@ -63,39 +63,43 @@
 
 </tr> 
 @foreach($data as $p)
-
-
 <tr>
-    
-    <td><img src="/uploads/{{$p->image}}" alt="Product image" heigh="150px" width="150px" class="product-image"></td>
+    <td><img src="/uploads/{{$p->image}}" alt="Product image" height="150px" width="150px" class="product-image"></td>
     <td>{{$p->name}}</td>
     <td>{{$p->phone}}</td>
     <td>{{$p->address}}</td>
-   
     <td>{{$p->date}}</td>
+<td>
+@if ($p->bstatus == null)   
     @if ($p->url == null)
-    <td><a href="" class="btn btn-danger">Appoinment time not fixed</a></td>
+        <a href="#" class="btn btn-danger">Appointment time not fixed</a>
     @else
-
         @if ($p->dr_id == $dr_lid)
-            <td><a href="{{ url('videocall_join',['url' => $p->url]) }}" class="btn btn-success">Join</a></td>
+            <a href="{{ url('videocall_join',['url' => $p->url, 'reg_id' => $p->reg_id]) }}" class="btn btn-success">Join</a>
         @else
-            <td>Meeting Fixed by Another Doctor</td>
+            Meeting Fixed by Another Doctor
         @endif
+    @endif
+@else
+@endif
+</td>
+
+<td>
+@if ($p->bstatus == null)
+    @if ($p->url == null)
+        <a href="{{ url('consultation_schedule', ['bkey' => $p->reg_id]) }}" class="btn btn-info">Schedule Meeting</a>
+   
+    @else
+        Scheduled
+    @endif
+@else
+    Meeting Compleated
+@endif
+</td>
+
 
     
-    @endif
-    @if ($p->url == null)
-    <td><a href="{{url('consultation_schedule', ['bkey' => $p->reg_id])}}"   class="btn btn-info">Schedule Meeting</a></td>
-    @else
-
-    <td>Schedulded</td>
-    @endif
-    <!-- <td><a href=""   class="btn btn-warning">Refund</a></td> -->
-
-
 </tr>
-
 @endforeach
 
 </table>

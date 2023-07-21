@@ -271,9 +271,9 @@
 
             <div class="col-12 col-lg-6 col-xl-3 border-light">
     <div class="card-body">
-        <form action="" method="POST">
+        <form action="{{url('generate_report', [ 'reg_id' => $reg_id])}}" method="POST">
             @csrf
-            <textarea name="temperature" class="form-control mb-2" rows="3" placeholder="Please enter the prescription here"></textarea>
+            <textarea name="prescription" class="form-control mb-2" rows="3" placeholder="Please enter the prescription here"></textarea>
             <button type="submit" class="btn btn-primary">Generate Report</button>
         </form>
     </div>
