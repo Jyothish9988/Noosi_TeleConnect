@@ -1,7 +1,7 @@
 # NOOSI TeleConnect
 
 An innovative solution for remote patient care and communication.Noosi is an open-source robotics platform, to bridge the gap between patients and doctors. It can be used for patients who require frequent monitoring of their vital signs by doctors. It can also be deployed in specific geographical areas in case of an outbreak of an epidemic
-
+<img src="screenshots/images(11).jpeg"><br>
 ## Project Overview
 
 **NOOSI TeleConnect** is a cutting-edge Laravel project integrated with robotics, designed to revolutionize healthcare communication. This platform enables hospitals to connect with patients through videoconferencing and interactive robotics technology.
